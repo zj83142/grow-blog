@@ -1,0 +1,54 @@
+body, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.ul, li {
+  list-style: none;
+}
+.h48 {
+  height: 48px;
+  line-height: 48px;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:root {
+  --el-color-primary: #39bda4;
+  --el-color-primary-light-3: #50e3c2;
+  --el-color-primary-light-5: #7af0d2;
+  --el-color-primary-light-7: #a9fce5;
+  --el-color-primary-light-8: #d4fff1;
+  --el-color-primary-light-9: #f0fffa;
+  --el-color-primary-dark-2: #167066;
+}
+.icon-growfuzhi {
+  cursor: pointer;
+  margin-left: 4px;
+  color: var(--el-color-primary);
+}
+.icon-growfuzhi:hover {
+  cursor: pointer;
+  margin-left: 4px;
+  color: var(--el-color-primary-light-3);
+}
+
+/* 滚动条宽和高，分别对应垂直滚动条和横向滚动条 */
+::-webkit-scrollbar {
+  width: 4px;
+  /* height: 4px; */
+}
+
+/* 滚动条上的滚动滑块，设置背景色和圆角 */
+::-webkit-scrollbar-thumb {
+  background: #d7d7d7;
+  border-radius: 6px;
+}
+
+/* 滚动条上的滑轨属性，设置背景色和其他属性 */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
