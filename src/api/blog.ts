@@ -1,5 +1,11 @@
 import { get, post } from '../utils/request'
 
+
+const getAllBlog = async (params?: any) => {
+  return get('/api/blog/getAllBlog', params, { loading: true, text: '正在获取数据，请稍后！'})
+}
+
+
 // 保存文章
 const onSaveBlog = async (params: any) => {
   return post('/api/blog/save', params, { loading: true, text: '数据保存中，请稍后！'})
@@ -15,6 +21,7 @@ const getBlogById = async(params: any) => {
 }
 
 export {
+  getAllBlog,
   onSaveBlog,
   getBlogByCategroy,
   getBlogById

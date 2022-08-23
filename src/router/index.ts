@@ -1,12 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { defineAsyncComponent } from 'vue'
 const _import = (path:string) => () => import(`../pages/${path}.vue`);
 
 const routes = [
   { path: '/', component: _import('Home/index') },
   { path: '/home', component: _import('Home/index') },
   { path: '/login', component: _import('Login/index') },
+  { path: '/blogDetail/:id', 
+    component: _import('BlogDetail/index'),
+  },
+  { path: '/editBlog/:id?', 
+    component: _import('BlogEdit/index'),
+  },
   { path: '/blog', 
     component: _import('Blogs/index'),
     children: [
@@ -17,6 +22,9 @@ const routes = [
       {
         path: ':category/:id',
         component: _import('Blogs/Detail/index')
+      }, {
+        path: 'detail/:id',
+        component: _import('BlogDetail/index')
       }
     ]
   },

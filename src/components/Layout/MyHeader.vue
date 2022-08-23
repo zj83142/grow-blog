@@ -1,7 +1,7 @@
 <template>
   <div class="flex-between">
     <div class="menus-warp">
-      <div class="logo" :class="type">
+      <div class="logo" :class="type" @click="onSkip('/home')">
         <img src="../../../public/favicon.ico" />
         <span>成长快乐</span>
       </div>
@@ -20,7 +20,10 @@
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item>个人中心</el-dropdown-item>
+          <el-dropdown-item @click="onSkip('/editBlog')">写博客</el-dropdown-item>
+          <el-dropdown-item @click="onSkip('/myblog')">我的博客</el-dropdown-item>
+          <el-dropdown-item @click="onSkip('/collection')">我的收藏</el-dropdown-item>
+          <el-dropdown-item @click="onSkip('/modifyPwd')">修改密码</el-dropdown-item>
           <el-dropdown-item divided @click="onSkip('/login')">退出</el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -33,7 +36,7 @@
   import { useRouter, useRoute } from 'vue-router'
   export default {
     props: [ 'type' ],
-    setup(props) {
+    setup(props: any) {
       console.log(props)
       const store = useStore()
       const router = useRouter()
@@ -48,28 +51,27 @@
         const path = route.path
         return path.indexOf(menu) !== -1 ? 'active' : ''
       }
-      const menus = [
-        {
-          index: 0,
-          name: '首页',
-          to: '/home',
-        },
-        {
-          index: 1,
-          name: '日志',
-          to: '/blog/css',
-        },
-        {
-          index: 2,
-          name: '工具',
-          to: '/tools/demo/bgcolor',
-        },
-        {
-          index: 3,
-          name: '图库',
-          to: '/pictures',
-        }
-
+      const menus: any = [
+        // {
+        //   index: 0,
+        //   name: '首页',
+        //   to: '/home',
+        // },
+        // {
+        //   index: 1,
+        //   name: '日志',
+        //   to: '/blog/css',
+        // },
+        // {
+        //   index: 2,
+        //   name: '工具',
+        //   to: '/tools/demo/bgcolor',
+        // },
+        // {
+        //   index: 3,
+        //   name: '图库',
+        //   to: '/pictures',
+        // }
       ]
       const data = reactive({
         userInfo: user.userInfo,
@@ -104,6 +106,8 @@
         height: 60px;
         width: 200px;
         padding-left: 24px;
+        cursor: pointer;
+        
         img {
           width: 36px;
           margin-right: 8px;
